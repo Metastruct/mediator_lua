@@ -100,10 +100,10 @@ local function Channel(namespace, parent)
         -- if it doesn't have a predicate, or it does and it's true then run it
         if not callback.options.predicate or callback.options.predicate(...) then
            -- just take the first result and insert it into the result table
-          local value, continue = callback.fn(...)
+          local value, _continue = callback.fn(...)
 
           if value then table.insert(result, value) end
-          if not continue then return result end
+          if not _continue then return result end
         end
       end
 
